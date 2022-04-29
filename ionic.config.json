@@ -1,0 +1,7 @@
+{
+  "name": "FrontEnd_V2.0",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
