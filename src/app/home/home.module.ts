@@ -3,8 +3,11 @@ import { CommonModule } from '@angular/common';
 import { IonicModule } from '@ionic/angular';
 import { FormsModule } from '@angular/forms';
 import { HomePage } from './home.page';
+import { SwiperModule } from 'swiper/angular';
 
 import { HomePageRoutingModule } from './home-routing.module';
+import { ShareModule } from '../share/share.module';
+import { ComponentesModule } from '../componentes/componentes.module';
 
 
 @NgModule({
@@ -12,8 +15,13 @@ import { HomePageRoutingModule } from './home-routing.module';
     CommonModule,
     FormsModule,
     IonicModule,
-    HomePageRoutingModule
+    HomePageRoutingModule,
+    SwiperModule,
+    ShareModule,
+    ComponentesModule,
   ],
-  declarations: [HomePage]
+  declarations: [
+    HomePage,
+  ]
 })
 export class HomePageModule {}

@@ -1,20 +1,32 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Blank
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
+<!-- Header-->
+<app-header [usuarioConectado]="usuario"></app-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
+<!-- Body -->
+<ion-content [fullscreen]="true" scrollX="false" scrollY="true" class="fondoContent ion-padding">
+
+    <ion-toolbar class="ionItem">
+        <ion-segment (ionChange)="segmentChanged($event)" value="0" [(ngModel)]="type">
+            <ion-segment-button value="0">
+                <ion-label>Reservas</ion-label>
+            </ion-segment-button>
+            <ion-segment-button value="1">
+                <ion-label>Nueva Reserva</ion-label>
+            </ion-segment-button>
+            <ion-segment-button value="2" *ngIf="role==='ROLE_ADMIN'">
+                <ion-label>Gestion Datos</ion-label>
+            </ion-segment-button>
+        </ion-segment>
+
+        <ion-slides #slides (ionSlideDidChange)="slideChanged()" scrollbar="true">
+            <ion-slide>
+                <app-reservas [reservas]="reservas" style="width:inherit ;"></app-reservas>
+            </ion-slide>
+            <ion-slide>
+                <app-altareserva></app-altareserva>
+            </ion-slide>
+            <ion-slide *ngIf="role==='ROLE_ADMIN'">
+                <h4>Nueva pantallita para role ADMIN</h4>
+            </ion-slide>
+        </ion-slides>
     </ion-toolbar>
-  </ion-header>
-
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-  </div>
 </ion-content>

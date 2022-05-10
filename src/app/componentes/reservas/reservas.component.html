@@ -1,0 +1,8 @@
+<ion-grid>
+    <ion-row sizeLg="3" sizeMd="4" sizeSm="6" sizeXs="12">
+        <!--<ion-col *ngFor="let reserva of reservas; let i=index" sizeLg="3" sizeMd="4" sizeSm="4" sizeXs="6">-->
+        <ion-col *ngFor="let reserva of reservas; let i=index">
+            <app-reserva [reserva]="reserva" [i]="i"></app-reserva>
+        </ion-col>
+    </ion-row>
+</ion-grid>

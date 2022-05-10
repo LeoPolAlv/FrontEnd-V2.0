@@ -1,0 +1,59 @@
+#tituloCabecera {
+    width: 160px;
+    --background: none;
+    background-color: #20589d;
+    border-radius: 10px;
+    padding: 5px;
+    color: white;
+}
+
+.fila {
+    margin-top: 5px;
+}
+
+.textitle {
+    font-size: large;
+    background-color: #8f8f8f;
+    color: #f9f9f9;
+    padding: 5px 10px;
+    border-radius: 10px;
+}
+
+.textdato {
+    color: #20589d;
+    text-align: center;
+}
+
+.titulocol {
+    background-color: #e9e9e9;
+    text-align: center;
+    margin-top: 35px;
+}
+
+.titulotabla {
+    color: #20589d;
+}
+
+
+/**/
+
+#cabDatosReser {
+    --background: none;
+    background-color: #e9e9e9 !important;
+}
+
+ion-content,
+ion-list {
+    --background: none;
+    background-color: rgb(255, 255, 255);
+    color: #8f8f8f;
+}
+
+.datoReserva {
+    --background: none;
+    background-color: #f9f9f9;
+    color: #20589d;
+    margin-left: 1rem;
+    margin-top: (0.25rem);
+    padding: (0.25rem);
+}

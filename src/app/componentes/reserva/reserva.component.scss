@@ -1,0 +1,52 @@
+.card {
+    background-color: #dcdfe2;
+}
+
+.card-subtitle {
+    background-color: #8f8f8f !important;
+    color: #fff;
+    //padding: 15px 5px;
+    border-radius: 12px 12px;
+    font-size: small;
+}
+
+.card-title {
+    background-color: #20589d !important;
+    color: #fff;
+    margin: 5px 0;
+    padding: 5px;
+    border-radius: 12px 12px;
+    font-size: medium;
+}
+
+.parrafo {
+    color: #20589d;
+    font-size: small;
+    margin-top: 0%;
+}
+
+
+/**/
+
+.cabecReserva {
+    --background: none;
+    background-color: #527aac !important;
+    color: #ffffff;
+    border-radius: 10px;
+    padding: 10px 5px;
+    margin: 0 25px;
+}
+
+#labelReserva {
+    color: #8f8f8f;
+}
+
+#roomReserva {
+    --background: none;
+    background-color: #527aac !important;
+    border-radius: 20px;
+    color: #f9f9f9;
+    padding: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+}

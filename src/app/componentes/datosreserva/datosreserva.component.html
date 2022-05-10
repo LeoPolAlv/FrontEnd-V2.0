@@ -1,0 +1,104 @@
+<ion-header>
+    <ion-toolbar id="cabDatosReser">
+        <ion-title id="tituloCabecera">Detalle Reserva</ion-title>
+        <ion-buttons slot="start">
+            <ion-button (click)="dismiss()">
+                <ion-icon slot="icon-only" name="chevron-back-outline"></ion-icon>
+            </ion-button>
+        </ion-buttons>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+    <ion-grid>
+        <!--class="ion-text-center"-->
+        <ion-row class="fila">
+            <ion-col>
+                <ion-text class="textitle">Reserva </ion-text>
+            </ion-col>
+
+            <ion-col>
+                <ion-text class="textdato">{{ reserva.roomName }}</ion-text>
+            </ion-col>
+        </ion-row>
+        <ion-row class="fila">
+            <ion-col>
+                <ion-text class="textitle">Oficina </ion-text>
+            </ion-col>
+
+            <ion-col>
+                <ion-text class="textdato">{{ reserva.officeRoom }}</ion-text>
+            </ion-col>
+        </ion-row>
+        <ion-row class="fila">
+            <ion-col>
+                <ion-text class="textitle">Capacidad </ion-text>
+            </ion-col>
+
+            <ion-col>
+                <ion-text class="textdato">{{ reserva.capacity }} <span class="fst-italic ms-1 d-inline">  personas</span></ion-text>
+            </ion-col>
+        </ion-row>
+        <ion-row class="fila">
+            <ion-col>
+                <ion-text class="textitle">Fecha reserva </ion-text>
+            </ion-col>
+
+            <ion-col>
+                <ion-text class="textdato">{{ reserva.fechaReserva }} </ion-text>
+            </ion-col>
+        </ion-row>
+        <!-- INI-- tabla de horas de reservas -->
+        <ion-row class="ion-margin">
+            <ion-col class="titulocol">
+                <ion-title>
+                    <ion-text class="titulotabla">
+                        Horario Reserva
+                    </ion-text>
+                </ion-title>
+            </ion-col>
+        </ion-row>
+        <ion-row>
+            <ion-col>
+                <ion-text class="textitle">Hora Inicio</ion-text>
+            </ion-col>
+
+            <ion-col>
+                <ion-text class="textitle">Hora Fin</ion-text>
+            </ion-col>
+        </ion-row>
+        <ion-row *ngFor="let hora of horaReserva">
+            <ion-col>
+                <ion-text class="textdato">
+                    {{hora.fechaIni | slice:0:5 }}
+                </ion-text>
+            </ion-col>
+
+            <ion-col>
+                <ion-text class="textdato">
+                    {{hora.fechaFin}}
+                </ion-text>
+            </ion-col>
+        </ion-row>
+        <!-- Fin tabla horas de reserva-->
+        <!-- INI-- tabla de equipamiento de sala -->
+        <ion-row class="ion-margin">
+            <ion-col class="titulocol">
+                <ion-title>
+                    <ion-text class="titulotabla">
+                        Equipamiento Sala
+                    </ion-text>
+                </ion-title>
+            </ion-col>
+        </ion-row>
+
+        <ion-row *ngFor="let equipo of reserva.nombreEquipo">
+            <ion-col>
+                <ion-text class="textdato">
+                    {{ equipo }}
+                </ion-text>
+            </ion-col>
+        </ion-row>
+        <!-- Fin tabla equipamiento de sala-->
+    </ion-grid>
+</ion-content>

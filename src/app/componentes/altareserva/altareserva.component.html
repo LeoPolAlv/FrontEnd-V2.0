@@ -1,0 +1,61 @@
+<form [formGroup]="altaReservaForm" (submit)="altaReserva()">
+    <ion-grid>
+        <ion-row>
+            <ion-col width-250 class="divAltaReserva">
+                <div>
+                    <h3>Creando Reserva...</h3>
+                </div>
+                <div>
+                    <!-- Selecion del Pais-->
+                    <ion-item lines="none">
+                        <ion-label class="etq-label">Pais</ion-label>
+                        <ion-select formControlName="pais" value='' okText="Ok" cancelText="Cancelar">
+                            <ion-select-option *ngFor="let pais of paisesAux" value="{{pais.countryName}}">{{ pais.countryName }}</ion-select-option>
+                        </ion-select>
+                    </ion-item>
+                    <!-- Seleccion de la oficina -->
+                    <ion-item lines="none" [disabled]="!paisSelecc">
+                        <ion-label class="etq-label">Oficina</ion-label>
+                        <ion-select formControlName="oficina" value='' okText="Ok" cancelText="Cancelar">
+                            <ion-select-option *ngFor="let oficina of oficinasPais" value="{{oficina.officename}}">{{ oficina.officename }}</ion-select-option>
+                        </ion-select>
+                    </ion-item>
+                    <!-- Seleccion de la Salas disponible en la oficina seleccionada -->
+                    <ion-item lines="none" [disabled]="!oficinaSelec">
+                        <ion-label class="etq-label">Salas Disponibles</ion-label>
+                        <ion-select formControlName="sala" value='' okText="Ok" cancelText="Cancelar">
+                            <ion-select-option *ngFor="let sala of salas" value="{{sala.roomName}}">{{ sala.roomName }}</ion-select-option>
+                        </ion-select>
+                    </ion-item>
+                    <!-- Seleccion de la fecha de la reserva-->
+                    <ion-item lines="none" [disabled]="!salaSelec">
+                        <ion-input [value]="dateValue" placeholder="Elije fecha reserva..." class="etq-label"></ion-input>
+                        <ion-button fill="clear" id="open-date-input-2">
+                            <ion-icon icon="calendar" size="large"></ion-icon>
+                        </ion-button>
+                        <ion-popover trigger="open-date-input-2" show-backdrop="false">
+                            <ng-template>
+                                <ion-datetime formControlName="fechaReserva" #popoverDatetime2 presentation="date" [min]="fechaMin" [max]="fechaMax">
+                                    <!--(ionChange)="formatDate(popoverDatetime2.value)"-->
+                                </ion-datetime>
+                            </ng-template>
+                        </ion-popover>
+                    </ion-item>
+                    <!-- Tramos de horas disponibles para una sala en un dia concreto.-->
+                    <ion-item lines="none" [disabled]="!fechaSelec">
+                        <ion-select class="ps-0" class="horaReserva" placeholder="Elije Hora reserva" multiple="true" cancelText="Cancela" okText="Selecciona" formControlName="horasReserva" (ionChange)="cambioSelect()" class="etq-label">
+                            <ion-select-option *ngFor="let tramo of tramosHoras " value="{{ tramo.tramos }} "> {{ tramo.tramos |slice: 0:5 }} </ion-select-option>
+                        </ion-select>
+                        <ion-icon name="time-outline" class="icono-time" size="large"></ion-icon>
+                    </ion-item>
+                    <!-- boton para reservar una sala-->
+                    <ion-item lines="none">
+                        <ion-button block type="submit" class="botonReserva" shape="round" [disabled]="altaReservaForm.invalid">
+                            Reservar
+                        </ion-button>
+                    </ion-item>
+                </div>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+</form>
